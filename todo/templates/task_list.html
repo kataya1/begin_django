@@ -13,7 +13,9 @@
                     <button type="button" class="btn btn-secondary">update</button>
                     <label type="button" class="btn btn-danger" for="submit_delete">delete</label>
                 </div>
-                <form action="{% url 'view_task' task.id%}" method="DELETE" style="display: none">
+                <form action="{% url 'view_task' task.id%}" method="POST" style="display: none">
+                {% csrf_token %}
+                <input type="text" name="op" value="DELETE">
                 <input type="submit" id="submit_delete" value="deletarrase" >
                 </form>
             </li>    
