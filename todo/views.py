@@ -65,10 +65,9 @@ def index(request):
     return render(request, 'task_list.html', context={"my_task_list": my_task_list})
 
 def create_task_dict(p):
-    print(type(p.get("id")))
     return  {
     'index': p.get('index') or len(my_task_list),
-    'id':   p.get('id') or int(random()*10000),
+    'id':  int(p.get('id') or random()*10000),
     'name': p.get('task_name'),
     'priority': p.get('priority'),
     'description': p.get('description')
@@ -90,6 +89,7 @@ def tasks(request, **kwargs):
         elif p.get('op') == 'UPDATE':
             print("\n\n------it wants to update------\n\n")
             print(p)
+            # be careful of unpacking request.post it's not a simple dectianory     
             updated_task = create_task_dict(p)
             print(updated_task)
             my_task_list[t] = updated_task

@@ -10,5 +10,5 @@ urlpatterns = [
     path('tasks/<int:task_id>/', views.tasks, name='view_task'),
     path('tasks/<int:task_id>/update/', views.update_task, name='update_task'),
     # path('tasks/<int:task_id>/delete', views.delete_task, name='delete_task'),
+    # why did i do this to myself again
 ]
-# why did i do this to myself again
