@@ -52,7 +52,6 @@ def _get_target_task(target_id):
     # Filter the list based on the task id sent and compare it toward each dictionary item in the list
     filter_result = filter(lambda d: d.get('id') == target_id, my_task_list)
     final_list = list(filter_result)
-    # print(f"\n\n{final_list}\n\n")
     # Getting index of the required task from my_task_list
     if len(final_list) == 0:
         return -1
@@ -72,12 +71,12 @@ def index(request):
             'description': p.get('description')
         }
         my_task_list.append(new_task)
-        return redirect('tasks')
+        return redirect('index')
     return render(request, 'task_list.html', context={"my_task_list": my_task_list})
 
 
 def tasks(request, **kwargs):
-    print(f"taskid --> {kwargs.get('task_id')}")
+    print(kwargs)
     t = _get_target_task(kwargs.get('task_id'))
     if t == -1:
         return HttpResponse("404 man, there is no task with that id")
@@ -85,13 +84,11 @@ def tasks(request, **kwargs):
     if request.method == 'POST':
         p = request.POST
         if p.get('op') == 'DELETE':
-            print('\n\n-------------\nit wonts to be deleted\n\n')
             my_task_list.pop(t)
             return redirect('index')
 
         elif p.get('op') == 'UPDATE':
-            print('\n\n-------------\nit wonts to be updated\n\n')
-            
+            pass
 
 
     return render(request, 'task.html', context=my_task_list[t])

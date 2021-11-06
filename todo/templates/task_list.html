@@ -9,14 +9,14 @@
             <li class="m-3">
                 id:{{task.id}} name:{{task.name}}
                 <div class="btn-group" role="group">
-                     <a type="button" class="btn btn-primary" href="{% url 'view_task' task.id %}">view</a>
+                    <a type="button" class="btn btn-primary" href="{% url 'view_task' task.id %}">view</a>
                     <button type="button" class="btn btn-secondary">update</button>
-                    <label type="button" class="btn btn-danger" for="submit_delete">delete</label>
+                    <label type="button" class="btn btn-danger" for="submit_delete_{{task.id}}">delete</label>
                 </div>
-                <form action="{% url 'view_task' task.id%}" method="POST" style="display: none">
+                <form action="{% url 'view_task' task.id %}" method="POST" style="display: none">
                 {% csrf_token %}
                 <input type="text" name="op" value="DELETE">
-                <input type="submit" id="submit_delete" value="deletarrase" >
+                <input type="submit" id="submit_delete_{{task.id}}" value="deletarrase">
                 </form>
             </li>    
         {% endfor %}
