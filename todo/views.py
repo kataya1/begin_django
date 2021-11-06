@@ -108,13 +108,7 @@ def tasks(request, **kwargs):
 def create_task(request):
     if request.method == 'POST':
         p = request.POST
-        new_task = {
-            'index': len(my_task_list),
-            'id': int(random()*10000),
-            'name': p.get('task_name'),
-            'priority': p.get('priority'),
-            'description': p.get('description')
-        }
+        new_task = create_task_dict(p)
         my_task_list.append(new_task)
         return redirect('index')
     elif request.method == 'GET':
