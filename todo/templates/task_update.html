@@ -1,0 +1,7 @@
+{% extends 'task_create.html' %}
+
+{% block form_url %}{% url 'view_task' id %}{% endblock form_url %}
+{% block task_name %}{{ name }}{% endblock  %}
+{% block description %}{{ description }}{% endblock  %}
+{% block priority %}{{ priority }}{% endblock  %}
+{% block content2 %}<input type="text" name="op" value="UPDATE" hidden>{% endblock content2 %}

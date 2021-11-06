@@ -61,37 +61,41 @@ def _get_target_task(target_id):
 
 # Create your views here.
 def index(request):
-    if request.method == 'POST':
-        p = request.POST
-        new_task = {
-            'index': len(my_task_list),
-            'id': int(random()*10000),
-            'name': p.get('task'),
-            'priority': p.get('priority'),
-            'description': p.get('description')
-        }
-        my_task_list.append(new_task)
-        return redirect('index')
+
     return render(request, 'task_list.html', context={"my_task_list": my_task_list})
 
+def create_task_dict(p):
+    print(type(p.get("id")))
+    return  {
+    'index': p.get('index') or len(my_task_list),
+    'id':   p.get('id') or int(random()*10000),
+    'name': p.get('task_name'),
+    'priority': p.get('priority'),
+    'description': p.get('description')
+    }
 
 def tasks(request, **kwargs):
-    print(kwargs)
+    # kwargs have task id
     t = _get_target_task(kwargs.get('task_id'))
     if t == -1:
         return HttpResponse("404 man, there is no task with that id")
-
+    # create in task/id doesn't make anysense
     if request.method == 'POST':
         p = request.POST
         if p.get('op') == 'DELETE':
+
             my_task_list.pop(t)
             return redirect('index')
 
         elif p.get('op') == 'UPDATE':
-            pass
-
-
-    return render(request, 'task.html', context=my_task_list[t])
+            print("\n\n------it wants to update------\n\n")
+            print(p)
+            updated_task = create_task_dict(p)
+            print(updated_task)
+            my_task_list[t] = updated_task
+            return redirect('index')
+    elif request.method == 'GET':
+        return render(request, 'task.html', context=my_task_list[t])
 
     # return render(request, 'task.html', context={
     #     'index': 2,
@@ -101,8 +105,23 @@ def tasks(request, **kwargs):
     #     'description': "hello iam studying at iti sahdjka shkdj sahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffff",
     # })
 
-def form(request):
+def create_task(request):
     if request.method == 'POST':
-        pass
-    return render(request, 'form.html')
+        p = request.POST
+        new_task = {
+            'index': len(my_task_list),
+            'id': int(random()*10000),
+            'name': p.get('task_name'),
+            'priority': p.get('priority'),
+            'description': p.get('description')
+        }
+        my_task_list.append(new_task)
+        return redirect('index')
+    elif request.method == 'GET':
+        return render(request, 'task_create.html')
     
+def update_task(request, **kwargs):
+    t = _get_target_task(kwargs.get('task_id'))
+    if t == -1:
+        return HttpResponse("404 man, there is no task with that id")
+    return render(request, 'task_update.html', context=my_task_list[t])
