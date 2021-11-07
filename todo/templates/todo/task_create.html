@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'todo/base.html' %}
 {% block title %}add task{% endblock title %}
 {% block content %}
-    <form id="form" method="POST" class="row container mx-auto w-50" action="{% block form_url %}{% url 'create_task' %}{% endblock form_url %}">
+    <form id="form" method="POST" class="row container mx-auto w-50" action="{% block form_url %}{% url 'todo:create_task' %}{% endblock form_url %}">
         {% csrf_token %}        
         <h2>Add Task</h2>
         <input class=" form-control m-2" type="text" name="task_name" id="inpttxt" placeholder="Task Name"  value="{% block task_name %}{% endblock  %}">

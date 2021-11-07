@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'todo/base.html' %}
 
 {% block title%}task{% endblock %}
 
@@ -9,5 +9,5 @@
     <h3>priority: {{priority}}</h3>
     <p>description:{{ description }}</p>
 
-    <a href="{% url 'index' %}">return to task list</a>
+    <a href="{% url 'todo:index' %}">return to task list</a>
 {% endblock content %}

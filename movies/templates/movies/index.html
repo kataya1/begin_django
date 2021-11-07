@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<Ul>
+{% for movie in movie_list  %}
+ <li>{{ movie.name }}</li>
+{% empty %}
+no movies sorry
+{% endfor %}
+</Ul>
+{% endblock %}
+

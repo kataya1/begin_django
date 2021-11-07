@@ -62,7 +62,7 @@ def _get_target_task(target_id):
 # Create your views here.
 def index(request):
 
-    return render(request, 'task_list.html', context={"my_task_list": my_task_list})
+    return render(request, 'todo/task_list.html', context={"my_task_list": my_task_list})
 
 def create_task_dict(p):
     return  {
@@ -84,7 +84,7 @@ def tasks(request, **kwargs):
         if p.get('op') == 'DELETE':
 
             my_task_list.pop(t)
-            return redirect('index')
+            return redirect('todo:index')
 
         elif p.get('op') == 'UPDATE':
             print("\n\n------it wants to update------\n\n")
@@ -93,9 +93,9 @@ def tasks(request, **kwargs):
             updated_task = create_task_dict(p)
             print(updated_task)
             my_task_list[t] = updated_task
-            return redirect('index')
+            return redirect('todo:index')
     elif request.method == 'GET':
-        return render(request, 'task.html', context=my_task_list[t])
+        return render(request, 'todo/task.html', context=my_task_list[t])
 
     # return render(request, 'task.html', context={
     #     'index': 2,
@@ -110,12 +110,12 @@ def create_task(request):
         p = request.POST
         new_task = create_task_dict(p)
         my_task_list.append(new_task)
-        return redirect('index')
+        return redirect('todo:index')
     elif request.method == 'GET':
-        return render(request, 'task_create.html')
+        return render(request, 'todo/task_create.html')
     
 def update_task(request, **kwargs):
     t = _get_target_task(kwargs.get('task_id'))
     if t == -1:
         return HttpResponse("404 man, there is no task with that id")
-    return render(request, 'task_update.html', context=my_task_list[t])
+    return render(request, 'todo/task_update.html', context=my_task_list[t])

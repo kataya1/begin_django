@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'lab1.urls'
 
+import os
+BASE_DIR_custome = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR_custome, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

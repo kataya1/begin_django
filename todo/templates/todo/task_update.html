@@ -1,6 +1,6 @@
-{% extends 'task_create.html' %}
+{% extends 'todo/task_create.html' %}
 
-{% block form_url %}{% url 'view_task' id %}{% endblock form_url %}
+{% block form_url %}{% url 'todo:view_task' id %}{% endblock form_url %}
 {% block task_name %}{{ name }}{% endblock  %}
 {% block description %}{{ description }}{% endblock  %}
 {% block priority %}{{ priority }}{% endblock  %}
