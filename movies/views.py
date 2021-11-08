@@ -2,10 +2,12 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .form import MovieForm
 from .models import Movie
+from django.contrib.auth.decorators import login_required
 
 # we will get this from the database 
 movie_list = []
 # Create your views here.
+@login_required
 def index(request):
     # return HttpResponse('hello fuckface')
     return render(request, 'movies/index.html', context={ 'movie_list': Movie.objects.all()} )
