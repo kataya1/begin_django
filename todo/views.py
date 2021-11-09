@@ -23,28 +23,28 @@ my_task_list = [
         'id': 3,
         'name': 'Movie-3',
         'priority': 2,
-        'description': "hello iam studying at iti sahdjka shkdj sahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffff",
+        'description': "hello iam studying at iti sahdjka shkdj ",
     },
     {
         'index': 2,
         'id': 4,
         'name': 'Movie-3',
         'priority': 2,
-        'description': "hello iam studying at iti sahdjka shkdj sahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffff",
+        'description': "hello iam studying at iti sahdjka shkdj ",
     },
     {
         'index': 2,
         'id': 5,
         'name': 'Movie-5',
         'priority': 2,
-        'description': "hello iam studying at iti sahdjka shkdj sahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffff",
+        'description': "hello iam studying at iti sahdjka shkdj ",
     },
     {
         'index': 2,
         'id': 6,
         'name': 'Movie-3',
         'priority': 2,
-        'description': "hello iam stsdfasffffffffadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffffhsadjksahdjkashkdjsahjkfghdadsgfadfadsgasdfasfffffffffffff",
+        'description': "hello iam ",
     },
 ]
 

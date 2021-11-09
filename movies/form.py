@@ -6,5 +6,7 @@ class MovieForm(ModelForm):
     # name = forms.CharField(max_length=250, label="movie name")
     class Meta:
         model = models.Movie
-        fields = ['name',]
+        # fields = ['name',]
+        # if you want all fields look no further than __all__
+        fields = '__all__'
 

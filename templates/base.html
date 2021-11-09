@@ -13,15 +13,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="{% url 'movies:home' %}">Kata</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="{% url 'accounts:profile' %}">Home</a>
+        <a class="nav-link" href="{% url 'todo:index' %}">Todo</a>
+        <a class="nav-link" href="{% url 'movies:index' %}">Movies</a>
         {% comment %} {% if request.user %}{% endif %} {% endcomment %}
         {% if user.is_authenticated %}
         <a class="nav-link" href="{% url 'accounts:logout'%}" >LOGOUT</a>
@@ -33,7 +33,56 @@
   </div>
 </nav>
     <div class="container">
-    {% block content %}{% endblock %}
+    {% block content %}
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <h2 class="mb-5">Welcome to my demo website</h2>
+      <div class="row">
+        <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="https://raw.githubusercontent.com/kataya1/Resume/master/assits/smilyblackandwhite.jpg" style="width: 20%; ;"class="rounded-circle h-20 position-absolute top-0 start-50 translate-middle">
+                    <div style="height: 15vh;"> </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+    
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                  Mo Kataya<span class="font-weight-light">, 25</span>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>Computer Engineer
+                </div>
+                <div>
+                  <i class="ni education_hat mr-2"></i>Alex uni
+                </div>
+                <hr class="my-4">
+                <p>I'v seen better days</p>
+                <a href="#" target="_blank">Show more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    {% endblock %}
     </div>
 </body>
 </html>

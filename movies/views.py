@@ -18,10 +18,13 @@ def add_movie(request):
     elif request.method == "POST":
         form = MovieForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            m = Movie(name=name)
+            # name = form.cleaned_data['name']
+            # print(form.cleaned_data)
+            m = Movie(**form.cleaned_data)
             m.save()
             return redirect('movies:index')
         else:
             return render(request, 'movies/movie_add.html', context={ 'form': form })
 
+def home(request):
+    return render(request, 'base.html')

@@ -3,7 +3,11 @@
     {% if message %}
        <h2> {{ message }} </h2>
     {% endif %}
+
+    
     <div class="container">
+    <p class="container w-50">
+    
     <form action="{% url 'accounts:login' %}" method="POST">
     <div class="mb-3">
         <label for="username" class="form-label">User name</label>
@@ -16,6 +20,9 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
     {% csrf_token %}
-    </form></div>
+    </form>
+    </p>
+    Don't have an account <a href={% url 'accounts:signup' %}>sign up <a>
+    </p>
 
 {% endblock content %}
