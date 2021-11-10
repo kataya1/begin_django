@@ -4,6 +4,7 @@
 {% block content %}
 <table class="table table-striped">
 <tr>
+<th scope="table" >poster</th>
 <th scope="table" >name</th>
 <th scope="table" >description</th>
 <th scope="table" >release date</th>
@@ -12,6 +13,8 @@
 
 {% for movie in movie_list  %}
 <tr>
+    
+ <td><img src="{{ movie.poster }}"></td>
  <td>{{ movie.name }}</td>
  <td>{{ movie.discription  }}</td>
  <td>{{ movie.release_date }}</td>

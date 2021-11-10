@@ -16,12 +16,14 @@ def add_movie(request):
     if request.method == 'GET':
         return render(request, 'movies/movie_add.html', context={ 'form': MovieForm() })
     elif request.method == "POST":
-        form = MovieForm(request.POST)
+        form = MovieForm(data=request.POST, files=request.FILES, instance=Movie)
         if form.is_valid():
             # name = form.cleaned_data['name']
             # print(form.cleaned_data)
-            m = Movie(**form.cleaned_data)
-            m.save()
+            print(form.cleaned_data)
+            # m = Movie(**form.cleaned_data)
+            # m.save()
+            form.save()
             return redirect('movies:index')
         else:
             return render(request, 'movies/movie_add.html', context={ 'form': form })

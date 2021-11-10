@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1 class="text-center">Task List</h1>
+<a href="{% url 'movies:home' %}" class="btn btn-secondary pill">« go home</a>
     <ul>
         {% for task in my_task_list%}
             <li class="m-3">
@@ -30,8 +31,6 @@
     </ul>
 <a href="{% url 'todo:create_task' %}" class="btn btn-warning">
 <span class="h5">+</span> add task</a>
-<a href="{% url 'movies:home' %}" class="btn btn-warning">
-go home</a>
 
 {% endblock content %}
 

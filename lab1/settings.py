@@ -142,3 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # LOGIN_REDIRECT_URL = '/movies/index'
 # LOGOUT_REDIRECT_URL = '/movies/index'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/kataya1/projects/django_projects/lab1'

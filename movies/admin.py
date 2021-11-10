@@ -1,7 +1,11 @@
 from django.contrib import admin
-from .models import Movie, Category, Cast
+from .models import Leader, Movie, Category, Cast
 # Register your models here.
 
-admin.site.register(Movie)
+
+class adminMovieList(admin.ModelAdmin):
+    list_display = ("name", "cast", "budget")
+admin.site.register(Movie, adminMovieList)
 admin.site.register(Cast)
 admin.site.register(Category)
+admin.site.register(Leader)
