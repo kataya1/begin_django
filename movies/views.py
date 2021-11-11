@@ -11,7 +11,7 @@ movie_list = []
 def index(request):
     # return HttpResponse('hello fuckface')
     return render(request, 'movies/index.html', context={ 'movie_list': Movie.objects.all()} )
-
+# 
 def add_movie(request):
     if request.method == 'GET':
         return render(request, 'movies/movie_add.html', context={ 'form': MovieForm() })

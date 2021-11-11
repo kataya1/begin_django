@@ -9,3 +9,5 @@ admin.site.register(Movie, adminMovieList)
 admin.site.register(Cast)
 admin.site.register(Category)
 admin.site.register(Leader)
+
+# 

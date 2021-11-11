@@ -14,6 +14,7 @@ class Movie(models.Model):
     def __str__(self):
         return self.name
     
+    # 
 class Category(models.Model):
     movies = models.ManyToManyField("Movie",related_name="category",null=True, blank=True)
     # categor_id = models.AutoField()
